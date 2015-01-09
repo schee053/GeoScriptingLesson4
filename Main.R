@@ -29,11 +29,6 @@ cloud8 <- Landsat8_Brick[[1]]
 CloudLandsat8 <- dropLayer(Landsat8_Brick, 1)
 CloudLandsat8 [cloud8 != 0] <- NA
 
-cloud8NA <- function(x, y){
-  x[y != 0] <- NA
-  return(x)
-}
-
 cloud8_2 <- dropLayer(Landsat8_Brick, 1)
 Landsat8CloudFree <- overlay (x=cloud8_2, y = cloud8, fun = cloud8NA)
 
@@ -41,11 +36,6 @@ Landsat8CloudFree <- overlay (x=cloud8_2, y = cloud8, fun = cloud8NA)
 cloud5 <- Landsat5_Brick[[1]]
 CloudLandsat5 <- dropLayer(Landsat5_Brick, 1)
 CloudLandsat5 [cloud5 != 0] <- NA
-
-cloud5NA <- function(x, y){
-  x[y != 0] <- NA
-  return(x)
-}
 
 cloud5_2 <- dropLayer(Landsat5_Brick, 1)
 Landsat5CloudFree <- overlay (x=cloud5_2, y = cloud5, fun = cloud5NA)
